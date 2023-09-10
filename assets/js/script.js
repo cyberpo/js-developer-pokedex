@@ -27,7 +27,6 @@ const typeColors = {
 };
 
     var pokemonValor = window.location.search.replace("?pokemonValor=", "");
-    //const  value  = 'pikachu';
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonValor}`)
         .then(data => data.json())
         .then(response => renderPokemonData(response))

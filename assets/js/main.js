@@ -21,7 +21,9 @@ function convertPokemonToLi(pokemon) {
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
+
             <button onclick="window.location.href = 'detalhe.html?pokemonValor=${pokemon.name}'">Detalhes</button>
+
         </li>
     `
 }

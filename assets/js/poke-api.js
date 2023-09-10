@@ -1,8 +1,6 @@
 
 const pokeApi = {}
 
-//Aqui eu declaro as variaveis que eu quero ler no main.js
-
 function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
@@ -22,7 +20,6 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
     return pokemon
 }
-//------------------------------------------------------
 
 pokeApi.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)

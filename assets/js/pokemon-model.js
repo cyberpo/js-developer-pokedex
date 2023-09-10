@@ -5,5 +5,5 @@ class Pokemon {
     type;
     types = [];
     photo;
-    weight;
+    botao;
 }
