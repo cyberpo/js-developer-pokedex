@@ -1,10 +1,14 @@
 
 const pokeApi = {}
 
+//Aqui eu declaro as variaveis que eu quero ler no main.js
+
 function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
     pokemon.name = pokeDetail.name
+    pokemon.weight = pokeDetail.weight
+
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
@@ -13,9 +17,12 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.type = type
 
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
+    
+    
 
     return pokemon
 }
+//------------------------------------------------------
 
 pokeApi.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)
@@ -23,7 +30,7 @@ pokeApi.getPokemonDetail = (pokemon) => {
         .then(convertPokeApiDetailToPokemon)
 }
 
-pokeApi.getPokemons = (offset = 0, limit = 5) => {
+pokeApi.getPokemons = (offset = 0, limit = 30) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
     return fetch(url)

@@ -6,6 +6,7 @@ const limit = 10
 let offset = 0;
 
 function convertPokemonToLi(pokemon) {
+    const loadMoreButton = document.getElementById('detalheButton')
     return `
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
@@ -14,11 +15,13 @@ function convertPokemonToLi(pokemon) {
             <div class="detail">
                 <ol class="types">
                     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+
                 </ol>
 
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
+            <button onclick="window.location.href = 'detalhe.html?pokemonValor=${pokemon.name}'">Detalhes</button>
         </li>
     `
 }
@@ -45,3 +48,4 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
